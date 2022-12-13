@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/giphyListFragment">
+
+    <fragment
+        android:id="@+id/giphyListFragment"
+        android:name="com.tods.giphy_project.ui.list.GiphyListFragment"
+        android:label="GiphyListFragment"
+        tools:layout="@layout/fragment_giphy_list"/>
+    <fragment
+        android:id="@+id/giphySearchFragment"
+        android:name="com.tods.giphy_project.ui.search.GiphySearchFragment"
+        android:label="GiphySearchFragment"
+        tools:layout="@layout/fragment_giphy_search"/>
+    <fragment
+        android:id="@+id/giphyFavoriteFragment"
+        android:name="com.tods.giphy_project.ui.favorite.GiphyFavoriteFragment"
+        android:label="GiphyFavoriteFragment"
+        tools:layout="@layout/fragment_giphy_favorite"/>
+</navigation>
