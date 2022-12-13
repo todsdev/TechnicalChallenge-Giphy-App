@@ -6,12 +6,13 @@
     <string name="an_error_occurred">An error occurred</string>
     <string name="empty">" "</string>
     <string name="search_">Search:</string>
-    <string name="favorite_successfully">Giphy added to favorite list successfully</string>
+    <string name="favorite_successfully">Giphy added to your favorite list successfully</string>
     <string name="share">Share</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
-    <string name="share_">Would like to share this Giphy?</string>
+    <string name="share_">Would you like to share this Giphy?</string>
     <string name="no_favorites_yet">No favorites yet</string>
     <string name="delete">Delete</string>
     <string name="delete_">Do you really want to remove this Giphy from your favorite list?</string>
+    <string name="share_url">Look at this Giphy</string>
 </resources>

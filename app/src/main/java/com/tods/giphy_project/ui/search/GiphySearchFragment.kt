@@ -1,5 +1,6 @@
 package com.tods.giphy_project.ui.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.tods.giphy_project.R
 import com.tods.giphy_project.databinding.FragmentGiphySearchBinding
 import com.tods.giphy_project.state.ResourceState
@@ -79,7 +81,24 @@ class GiphySearchFragment: BaseFragment<FragmentGiphySearchBinding, GiphySearchV
 
     private fun configClickAdapter() {
         giphyAdapter.setOnClickListener {
-
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(R.string.share))
+                .setMessage(getString(R.string.share_))
+                .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                    val intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, it.images.original.url)
+                        type = "text/plain"
+                    }
+                    val shareIntent = Intent.createChooser(intent, getString(R.string.share_url))
+                    startActivity(shareIntent)
+                }.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                    dialog.dismiss()
+                }.show()
+        }
+        giphyAdapter.setOnLongClickListener {
+            viewModel.insert(it)
+            toast(getString(R.string.favorite_successfully))
         }
     }
 
@@ -104,7 +123,7 @@ class GiphySearchFragment: BaseFragment<FragmentGiphySearchBinding, GiphySearchV
                     binding.progressGiphySearch.hide()
                     result.message?.let { message ->
                         toast(getString(R.string.an_error_occurred))
-                        Timber.tag("SearchPokemonFragment").e("Error: $message")
+                        Timber.tag("GiphySearchFragment").e("Error: $message")
                     }
                 }
                 is ResourceState.Loading -> {

@@ -1,5 +1,6 @@
 package com.tods.giphy_project.ui.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +36,22 @@ class GiphyFavoriteFragment: BaseFragment<FragmentGiphyFavoriteBinding, GiphyFav
     }
 
     private fun configClickAdapter() {
+        giphyAdapter.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(R.string.share))
+                .setMessage(getString(R.string.share_))
+                .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                    val intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, it.images.original.url)
+                        type = "text/plain"
+                    }
+                    val shareIntent = Intent.createChooser(intent, getString(R.string.share_url))
+                    startActivity(shareIntent)
+                }.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                    dialog.dismiss()
+                }.show()
+        }
         giphyAdapter.setOnLongClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(getString(R.string.delete))
