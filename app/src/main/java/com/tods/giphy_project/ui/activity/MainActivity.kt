@@ -18,6 +18,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         configBinding()
         configView()
+        configToolbar()
+    }
+
+    private fun configToolbar() {
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.logo_smaller)
+        supportActionBar!!.setHomeButtonEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = getString(R.string.empty)
     }
 
     private fun configView() {

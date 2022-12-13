@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/custom_shape.xml" value="0.129" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_giphy_favorite.xml" value="0.29375" />
-        <entry key="app/src/main/res/layout/fragment_giphy_list.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_giphy_list.xml" value="0.1607717041800643" />
         <entry key="app/src/main/res/layout/fragment_giphy_search.xml" value="0.29375" />
+        <entry key="app/src/main/res/layout/item_giphy.xml" value="0.5" />
         <entry key="app/src/main/res/menu/menu_navigation.xml" value="0.2947916666666667" />
       </map>
     </option>

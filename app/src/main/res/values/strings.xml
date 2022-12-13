@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Giphy_Project</string>
+    <string name="app_name">Giphy</string>
     <string name="favorite">Favorite</string>
     <string name="search">Search</string>
     <string name="home">Home</string>
+    <string name="an_error_occurred">An error occurred</string>
+    <string name="empty">" "</string>
 </resources>
