@@ -13,7 +13,7 @@
         android:gravity="center"
         android:text="@string/no_favorites_yet"
         android:textColor="@color/white"
-        android:textSize="32sp"
+        android:textSize="@dimen/fragment_favorites_empty_text_size"
         android:textStyle="italic"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,10 +23,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerGiphyFavorites"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
+        android:layout_width="@dimen/fragment_favorites_recycler_view_width"
+        android:layout_height="@dimen/fragment_favorites_recycler_view_height"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

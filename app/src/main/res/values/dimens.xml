@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_0">0dp</dimen>
+    <dimen name="size_3">3dp</dimen>
+    <dimen name="size_5">5dp</dimen>
+    <dimen name="size_180">180dp</dimen>
+    <dimen name="size_32_sp">32sp</dimen>
+
+    <dimen name="custom_shape_stroke_width">@dimen/size_3</dimen>
+    <dimen name="custom_shape_corner_radius">@dimen/size_5</dimen>
+    <dimen name="activity_main_frame_layout_height">@dimen/size_0</dimen>
+    <dimen name="fragment_favorites_empty_text_size">@dimen/size_32_sp</dimen>
+    <dimen name="fragment_favorites_recycler_view_width">@dimen/size_0</dimen>
+    <dimen name="fragment_favorites_recycler_view_height">@dimen/size_0</dimen>
+    <dimen name="fragment_search_text_input_margin">@dimen/size_5</dimen>
+    <dimen name="fragment_search_text_input_layout_width">@dimen/size_0</dimen>
+    <dimen name="fragment_search_recycler_view_width">@dimen/size_0</dimen>
+    <dimen name="fragment_search_recycler_view_height">@dimen/size_0</dimen>
+    <dimen name="fragment_list_recycler_view_width">@dimen/size_0</dimen>
+    <dimen name="fragment_list_recycler_view_height">@dimen/size_0</dimen>
+    <dimen name="item_giphy_margin_top">@dimen/size_5</dimen>
+    <dimen name="item_giphy_image_layout_height">@dimen/size_180</dimen>
+    <dimen name="item_giphy_image_layout_width">@dimen/size_180</dimen>
+    <dimen name="item_giphy_image_margin">@dimen/size_5</dimen>
+</resources>
