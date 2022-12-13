@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.tods.giphy_project.R
 import com.tods.giphy_project.data.model.giphy.GiphyModel
 import com.tods.giphy_project.databinding.FragmentGiphyListBinding
@@ -38,10 +39,18 @@ class GiphyListFragment: BaseFragment<FragmentGiphyListBinding, GiphyListViewMod
 
     private fun configClickAdapter() {
         giphyAdapter.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(R.string.share))
+                .setMessage(getString(R.string.share_))
+                .setPositiveButton(getString(R.string.yes)) { _, _ ->
 
+                }.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                    dialog.dismiss()
+                }.show()
         }
         giphyAdapter.setOnLongClickListener {
-        //    viewModel.insert()
+            viewModel.insert(it)
+            toast(getString(R.string.favorite_successfully))
         }
     }
 

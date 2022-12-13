@@ -19,4 +19,5 @@ class GiphyRepository @Inject constructor(
     suspend fun getGifsBySearch(query: String) = api.getGifsBySearch(API_KEY, query, LIMIT, OFF_SET, RATING, LANG)
     suspend fun insert(giphy: GiphyModel) = dao.insert(giphy)
     suspend fun delete(giphy: GiphyModel) = dao.delete(giphy)
+    fun getAll() = dao.getAll()
 }
