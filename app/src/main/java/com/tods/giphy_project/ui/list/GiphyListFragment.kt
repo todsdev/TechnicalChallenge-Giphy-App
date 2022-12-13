@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.tods.giphy_project.R
+import com.tods.giphy_project.data.model.giphy.GiphyModel
 import com.tods.giphy_project.databinding.FragmentGiphyListBinding
 import com.tods.giphy_project.state.ResourceState
 import com.tods.giphy_project.ui.adapter.GiphyAdapter
@@ -32,6 +33,16 @@ class GiphyListFragment: BaseFragment<FragmentGiphyListBinding, GiphyListViewMod
         super.onViewCreated(view, savedInstanceState)
         configDataCollection()
         configRecyclerView()
+        configClickAdapter()
+    }
+
+    private fun configClickAdapter() {
+        giphyAdapter.setOnClickListener {
+
+        }
+        giphyAdapter.setOnLongClickListener {
+        //    viewModel.insert()
+        }
     }
 
     private fun configRecyclerView() = with(binding) {

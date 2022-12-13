@@ -39,10 +39,15 @@ class GiphyAdapter(private val context: Context): ListAdapter<GiphyModel, GiphyA
                 it(giphy)
             }
         }
+        holder.itemView.setOnLongClickListener {
+            onItemLongClickListener?.let {
+                it(giphy)
+            }
+            true
+        }
     }
 
     override fun getItemCount(): Int = giphies.size
-
 
     class ItemDiff : DiffUtil.ItemCallback<GiphyModel>() {
         override fun areItemsTheSame(oldItem: GiphyModel, newItem: GiphyModel): Boolean {
@@ -58,10 +63,15 @@ class GiphyAdapter(private val context: Context): ListAdapter<GiphyModel, GiphyA
         }
     }
 
-
     private var onItemClickListener: ((GiphyModel) -> Unit)? = null
+
+    private var onItemLongClickListener: ((GiphyModel) -> Unit)? = null
 
     fun setOnClickListener(listener: (GiphyModel) -> Unit) {
         onItemClickListener = listener
+    }
+
+    fun setOnLongClickListener(listener: (GiphyModel) -> Unit) {
+        onItemLongClickListener = listener
     }
 }

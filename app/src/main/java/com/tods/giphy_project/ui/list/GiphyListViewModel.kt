@@ -3,6 +3,7 @@ package com.tods.giphy_project.ui.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tods.giphy_project.data.model.GiphyResponse
+import com.tods.giphy_project.data.model.giphy.GiphyModel
 import com.tods.giphy_project.repository.GiphyRepository
 import com.tods.giphy_project.state.ResourceState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,5 +46,9 @@ class GiphyListViewModel @Inject constructor(private val repository: GiphyReposi
             }
         }
         return ResourceState.Error(response.message())
+    }
+
+    fun insert(giphy: GiphyModel) = viewModelScope.launch {
+        repository.insert(giphy)
     }
 }

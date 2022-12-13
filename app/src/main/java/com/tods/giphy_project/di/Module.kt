@@ -1,10 +1,15 @@
 package com.tods.giphy_project.di
 
+import android.content.Context
+import androidx.room.Room
+import com.tods.giphy_project.data.local.GiphyDatabase
 import com.tods.giphy_project.data.remote.GiphyAPI
 import com.tods.giphy_project.util.Constants.BASE_URL
+import com.tods.giphy_project.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +20,16 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object Module {
+    @Singleton
+    @Provides
+    fun providesGiphyDatabase(
+        @ApplicationContext context: Context
+    ) = Room.databaseBuilder(context, GiphyDatabase::class.java, DATABASE_NAME).build()
+
+    @Singleton
+    @Provides
+    fun providesGiphyDAO(database: GiphyDatabase) = database.giphyDao()
+
     @Singleton
     @Provides
     fun providesOkHttpClient(): OkHttpClient {

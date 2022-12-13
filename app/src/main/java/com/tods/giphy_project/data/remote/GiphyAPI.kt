@@ -12,4 +12,14 @@ interface GiphyAPI {
         @Query("limit") limit: Int,
         @Query("rating") rating: String
     ): Response<GiphyResponse>
+
+    @GET("search")
+    suspend fun getGifsBySearch(
+        @Query("api_key") key: String,
+        @Query("q") query: String,
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int,
+        @Query("rating") rating: String,
+        @Query("lang") lang: String
+    ): Response<GiphyResponse>
 }
